@@ -1,21 +1,19 @@
-import { useState } from 'react'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-            <ToolBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/proposals" element={<ProposalsPage />} />
-          <Route path="/proposals/:proposalId" element={<ProposalPage />} />
-        </Routes>
-
-        <Footer />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
