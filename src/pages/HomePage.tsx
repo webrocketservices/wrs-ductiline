@@ -8,7 +8,7 @@ export default function HomePage() {
         <title>{import.meta.env.VITE_PROJECT_NAME} - Inicio</title>
       </Helmet>
       <Box component="main" mx={{ sm: 2, md: 4 }} my={8}>
-        Welcome to my awesome website!
+        Welcome to {import.meta.env.VITE_PROJECT_NAME}!
       </Box>
     </>
   );

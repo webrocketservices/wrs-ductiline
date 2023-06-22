@@ -30,7 +30,7 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" color="brandLight">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={appLogo} style={{ maxHeight: "50px" }} />

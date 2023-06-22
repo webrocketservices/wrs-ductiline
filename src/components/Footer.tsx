@@ -1,11 +1,13 @@
 import { Container, Typography, Link, Grid, Box } from "@mui/material";
+import type {} from "@mui/material/themeCssVarsAugmentation";
 
 export default function Footer() {
   return (
     <Box
       component="footer"
       p={4}
-      sx={{ backgroundColor: "#2D404E", color: "white" }}
+      bgcolor="brandPrimary.dark"
+      color="brandPrimary.light"
     >
       <Container maxWidth="xl">
         <Grid container spacing={5}>

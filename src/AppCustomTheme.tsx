@@ -5,6 +5,32 @@ import {
   LinkProps as RouterLinkProps,
 } from "react-router-dom";
 import { LinkProps } from "@mui/material/Link";
+import { PaletteColorOptions } from "@mui/material";
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    brandPrimary: Palette;
+    brandLight: Palette;
+  }
+  interface PaletteOptions {
+    brandPrimary: PaletteColorOptions;
+    brandLight: PaletteColorOptions;
+  }
+}
+declare module "@mui/material" {
+  interface ButtonPropsColorOverrides {
+    brandPrimary: true;
+    brandLight: true;
+  }
+  interface AppBarPropsColorOverrides {
+    brandPrimary: true;
+    brandLight: true;
+  }
+  interface BoxPropsColorOverrides {
+    brandPrimary: true;
+    brandLight: true;
+  }
+}
 
 const LinkBehavior = React.forwardRef<
   HTMLAnchorElement,
@@ -18,22 +44,19 @@ export const AppCustomTheme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
+        body{
+          background-color: #FCF7F8; 
+        }
         #root{
           padding-bottom: 0;
+         
         }
         main{
           min-height: calc(100vh - 281px);
         }
       `,
     },
-    MuiAppBar: {
-      styleOverrides: {
-        colorPrimary: {
-          backgroundColor: "#F5F9F9",
-          color: "#2D404E",
-        },
-      },
-    },
+
     MuiLink: {
       defaultProps: {
         component: LinkBehavior,
@@ -43,6 +66,23 @@ export const AppCustomTheme = createTheme({
       defaultProps: {
         LinkComponent: LinkBehavior,
       },
+    },
+  },
+  palette: {
+    error: {
+      main: "#A31621",
+    },
+    brandPrimary: {
+      light: "#FCF7F8",
+      main: "#4A5859",
+      dark: "#32373B",
+      contrastText: "#CED3DC",
+    },
+    brandLight: {
+      light: "#4A5859",
+      main: "#FCF7F8",
+      dark: "#CED3DC",
+      contrastText: "#32373B",
     },
   },
 });
