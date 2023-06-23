@@ -1,7 +1,9 @@
-import { Container, Typography, Link, Grid, Box } from "@mui/material";
-import type {} from "@mui/material/themeCssVarsAugmentation";
+import { Container, Typography, Link, Grid, Box, Icon } from "@mui/material";
+import dummyData from "../DummyData.ts";
 
 export default function Footer() {
+  console.log(dummyData);
+
   return (
     <Box
       component="footer"
@@ -11,64 +13,58 @@ export default function Footer() {
     >
       <Container maxWidth="xl">
         <Grid container spacing={5}>
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{ textAlign: { xs: "center", md: "left" } }}
-          >
-            <Typography variant="h6" gutterBottom>
-              Contáctanos
-            </Typography>
-            <Typography variant="body2">
-              Website:
-              <Link
-                color="inherit"
-                href="https://webrocket.services/"
-                target="_blank"
+          {dummyData.footer.columnsData.map((elem: any) => {
+            return (
+              <Grid
+                item
+                xs={12}
+                md={3}
+                sx={{ textAlign: { xs: "center", md: "left" } }}
               >
-                https://webrocket.services
-              </Link>
-            </Typography>
-            <Typography variant="body2">
-              Email:
-              <Link
-                color="inherit"
-                href="mailto:hola@webrocket.services"
-                target="_blank"
-              >
-                hola@webrocket.services
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Typography variant="body2" align="center">
-              {"Copyright © "}
-              <br />
-              <Link
-                color="inherit"
-                href="https://webrocket.services/"
-                target="_blank"
-              >
-                Web Rocket Services
-              </Link>
-              <br />
-              {new Date().getFullYear()}
-            </Typography>
-          </Grid>
+                <Typography
+                  variant="h6"
+                  color="brandPrimary.contrastText"
+                  fontWeight="bold"
+                  gutterBottom={true}
+                >
+                  {elem.title}
+                </Typography>
 
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{ textAlign: { xs: "center", md: "right" } }}
-          >
-            <Typography variant="h6" gutterBottom>
-              {import.meta.env.VITE_PROJECT_NAME} By WRS
+                {elem.list.map((subElem: any) => {
+                  return subElem.icon === undefined ? (
+                    <Typography variant="body2" gutterBottom={true}>
+                      <Link
+                        color="inherit"
+                        href="#"
+                        target="_blank"
+                        underline="hover"
+                      >
+                        {subElem.text}
+                      </Link>
+                    </Typography>
+                  ) : (
+                    <Typography component="label" mr={2}>
+                      <Icon component={subElem.icon} fontSize="large" />
+                    </Typography>
+                  );
+                })}
+              </Grid>
+            );
+          })}
+
+          <Grid item xs={12}>
+            <Typography variant="body2" align="center" gutterBottom={true}>
+              {`Copyright © ${new Date().getFullYear()}`}
             </Typography>
-            <Typography variant="body2">
-              Esta plataforma ha sido creada por Web Rocket Services donde
-              automatizamos tus ideas de negocio.
+
+            <Typography variant="body2" align="center">
+              <Link
+                color="inherit"
+                href="https://webrocket.services/"
+                target="_blank"
+              >
+                Powered by Web Rocket Services
+              </Link>
             </Typography>
           </Grid>
         </Grid>

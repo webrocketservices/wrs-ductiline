@@ -73,10 +73,10 @@ export const AppCustomTheme = createTheme({
       main: "#A31621",
     },
     brandPrimary: {
-      light: "#FCF7F8",
-      main: "#4A5859",
-      dark: "#32373B",
-      contrastText: "#CED3DC",
+      light: "#e5efff",
+      main: "#013ba6",
+      dark: "#172c4f",
+      contrastText: "#79dec9",
     },
     brandLight: {
       light: "#4A5859",

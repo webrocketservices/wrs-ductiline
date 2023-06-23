@@ -11,11 +11,15 @@ import {
   Link,
 } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
-import appLogo from "../assets/logos/app-logo.svg";
+import appLogo from "../assets/logos/app-logo.jpg";
 
 const pages = [
-  { text: "Home", url: "/" },
-  { text: "About", url: "/about" },
+  { text: "Inicio", url: "/" },
+  { text: "Nosotros", url: "/nosotros" },
+  { text: "Procesos", url: "/procesos" },
+  { text: "Certificaciones", url: "/certificaciones" },
+  { text: "Mision y Valores", url: "/mision-y-valores" },
+  { text: "Contactanos", url: "/contacto" },
 ];
 
 export default function NavBar() {
