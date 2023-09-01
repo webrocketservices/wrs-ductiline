@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { WebContentItem } from "../types";
-// import DummyData from "../DummyData";
+import Loader from "./Loader";
 
 type CompProps = {
   data: WebContentItem;
@@ -11,7 +11,7 @@ export default function LazyComponent({ data }: CompProps) {
     import(`./${data.component}`).catch(() => {})
   );
   return (
-    <Suspense fallback={<>Error loading...</>}>
+    <Suspense fallback={<Loader />}>
       <LazyLoadedComponent data={data} />
     </Suspense>
   );

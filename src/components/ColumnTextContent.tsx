@@ -12,7 +12,9 @@ export default function ColumnTextContent({ data, customStyle }: CompProps) {
     <Box {...customStyle}>
       {data.title ? <Typography variant="h3">{data.title}</Typography> : null}
       {data.subTitle ? (
-        <Typography variant="h5">{data.subTitle}</Typography>
+        <Typography variant="h4" mb={{ sm: 1, md: 2 }}>
+          {data.subTitle}
+        </Typography>
       ) : null}
       <Box fontSize="1.2em">{parse(data.text || "")}</Box>
     </Box>

@@ -106,12 +106,25 @@ export type ImgList = Omit<GenericContent, "subTitle" | "text"> & {
 export type HtmlSnippet = {
   htmlContent: string;
 };
+type ContactFormFieldTypes = "name" | "phone" | "company" | "comments";
+
+export type ContactFormField = {
+  [key in ContactFormFieldTypes]: string;
+};
+
+export type ContactForm = ContactFormField & {
+  buttonText: string;
+  buttonColor: string;
+  apiUrl: string;
+};
 
 export type ColumnContent = {
   TextList?: ListItem[];
   VideoList?: VideoListItem[];
   Image?: ImageItem;
+  ContactForm?: ContactForm;
   Content?: GenericContent;
+  HtmlSnippet?: HtmlSnippet;
   Cta?: Cta;
   CustomStyle?: CustomStyle;
 };
