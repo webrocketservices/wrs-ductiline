@@ -78,7 +78,6 @@ export default function Footer() {
               );
             }
           )}
-
           <Grid item xs={12}>
             <Typography variant="body2" align="center" gutterBottom={true}>
               {`Derechos Reservados © ${new Date().getFullYear()}`}
