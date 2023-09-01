@@ -4,6 +4,7 @@ export type CustomStyle = {
   bgImgUrl?: string;
   bgVideoUrl?: string;
   waveColor?: string;
+  textAlign?: string;
 };
 
 export type Config = {
@@ -38,6 +39,7 @@ export type ImageItem = {
   imgUrl: string;
   linkUrl?: string;
   caption?: string;
+  cols?: number; //TODO: remove
 };
 export type VideoItem = {
   videoUrl?: string;
@@ -72,7 +74,7 @@ export type WebSite = {
 type WebSectionKeys =
   | "Home"
   | "Nosotros"
-  | "Procesos"
+  | "Piezas"
   | "Certificaciones"
   | "MisionValores"
   | "Contacto";
@@ -121,6 +123,7 @@ export type ContactForm = ContactFormField & {
 export type ColumnContent = {
   TextList?: ListItem[];
   VideoList?: VideoListItem[];
+  ImageList?: ImgList[];
   Image?: ImageItem;
   ContactForm?: ContactForm;
   Content?: GenericContent;

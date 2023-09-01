@@ -4,12 +4,12 @@ import { useFetchWebContentDataQuery } from "../../redux/firebaseSlice";
 import NotFound from "../../components/NotFound";
 import { WebContentItem } from "../../types";
 
-export default function ValuesPage() {
+export default function CertificationsPage() {
   const { data } = useFetchWebContentDataQuery();
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - Certificaciones</title>
+        <title>Ductiline - Certificaciones</title>
       </Helmet>
       {data?.WebSection.Certificaciones ? (
         data?.WebSection.Certificaciones.map(

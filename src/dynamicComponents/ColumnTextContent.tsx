@@ -9,6 +9,7 @@ type CompProps = {
 
 export default function ColumnTextContent({ data, customStyle }: CompProps) {
   return (
+    // @ts-ignore
     <Box {...customStyle}>
       {data.title ? <Typography variant="h3">{data.title}</Typography> : null}
       {data.subTitle ? (
@@ -16,7 +17,11 @@ export default function ColumnTextContent({ data, customStyle }: CompProps) {
           {data.subTitle}
         </Typography>
       ) : null}
-      <Box fontSize="1.2em">{parse(data.text || "")}</Box>
+
+      {/* @ts-ignore */}
+      <Box fontSize="1.2em" textAlign={customStyle?.textAlign}>
+        {parse(data.text || "")}
+      </Box>
     </Box>
   );
 }

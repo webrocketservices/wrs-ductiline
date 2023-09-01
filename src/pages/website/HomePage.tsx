@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - Inicio</title>
+        <title>Ductiline - Inicio</title>
       </Helmet>
       {data?.WebSection.Home ? (
         data?.WebSection.Home.map((item: WebContentItem, index: number) => {

@@ -3,7 +3,7 @@ import { useFetchWebContentDataQuery } from "../redux/firebaseSlice";
 import { footerWrapper } from "../styles";
 import { FooterColumn, ListItem } from "../types";
 import { Link as RouterLink } from "react-router-dom";
-import DynamicIcon from "./DynamicIcon";
+import DynamicIcon from "../dynamicComponents/DynamicIcon";
 
 export default function Footer() {
   const { data } = useFetchWebContentDataQuery();

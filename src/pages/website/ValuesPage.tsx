@@ -9,7 +9,7 @@ export default function ValuesPage() {
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - Misión y Valores</title>
+        <title>Ductiline - Misión y Valores</title>
       </Helmet>
       {data?.WebSection.MisionValores ? (
         data?.WebSection.MisionValores.map(

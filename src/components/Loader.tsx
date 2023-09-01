@@ -13,7 +13,8 @@ export default function Loader() {
         <Grid container spacing={5}>
           <Grid item xs={12} textAlign="center">
             <Typography variant="h3">
-              {import.meta.env.VITE_PROJECT_NAME}
+              {/* {import.meta.env.VITE_PROJECT_NAME} */}
+              Ductiline
             </Typography>
           </Grid>
 

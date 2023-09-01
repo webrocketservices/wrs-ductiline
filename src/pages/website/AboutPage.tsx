@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - Nosotros</title>
+        <title>Ductiline - Nosotros</title>
       </Helmet>
       {data?.WebSection.Nosotros ? (
         data?.WebSection.Nosotros.map((item: WebContentItem, index: number) => {

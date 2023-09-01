@@ -3,14 +3,14 @@ import { getDatabase, ref } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
-  authDomain: import.meta.env.VITE_AUTHDOMAIN,
-  databaseURL: import.meta.env.VITE_DATABASEURL,
-  projectId: import.meta.env.VITE_PROJECTID,
-  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APPID,
-  measurementId: import.meta.env.VITE_MEASUREMENTID,
+  apiKey: "AIzaSyAxJOyPxkv8YrYjtovUMPiloDFx5q-pGWk",
+  authDomain: "wrs-ductiline.firebaseapp.com",
+  databaseURL: "https://wrs-ductiline-default-rtdb.firebaseio.com",
+  projectId: "wrs-ductiline",
+  storageBucket: "wrs-ductiline.appspot.com",
+  messagingSenderId: "464830523058",
+  appId: "1:464830523058:web:8c1caaf8a9a5aabdabcbab",
+  measurementId: "G-HKLH50M68M",
 };
 
 // Initialize Firebase

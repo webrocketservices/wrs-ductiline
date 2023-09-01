@@ -4,15 +4,15 @@ import { useFetchWebContentDataQuery } from "../../redux/firebaseSlice";
 import NotFound from "../../components/NotFound";
 import { WebContentItem } from "../../types";
 
-export default function ValuesPage() {
+export default function ArticlesPage() {
   const { data } = useFetchWebContentDataQuery();
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - Procesos</title>
+        <title>Ductiline - Piezas</title>
       </Helmet>
-      {data?.WebSection.Procesos ? (
-        data?.WebSection.Procesos.map((item: WebContentItem, index: number) => {
+      {data?.WebSection.Piezas ? (
+        data?.WebSection.Piezas.map((item: WebContentItem, index: number) => {
           return <LazyComponent key={index} data={item} />;
         })
       ) : (
