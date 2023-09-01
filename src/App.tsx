@@ -8,9 +8,15 @@ import ProcessesPage from "./pages/website/ProcessesPage";
 import ValuesPage from "./pages/website/ValuesPage";
 import CertificationsPage from "./pages/website/CertificationsPage";
 import ContactPage from "./pages/website/ContactPage";
+import { useFetchWebContentDataQuery } from "./redux/firebaseSlice";
+import Loader from "./components/Loader";
 
 function App() {
-  return (
+  const isWebContentLoading: boolean = useFetchWebContentDataQuery().isLoading;
+
+  return isWebContentLoading ? (
+    <Loader />
+  ) : (
     <>
       <NavBar />
       <Routes>

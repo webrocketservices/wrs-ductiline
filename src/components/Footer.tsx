@@ -1,8 +1,12 @@
-import { Container, Typography, Link, Grid, Box, Icon } from "@mui/material";
-import dummyData from "../DummyData.ts";
+import { Container, Typography, Link, Grid, Box } from "@mui/material";
+import { useFetchWebContentDataQuery } from "../redux/firebaseSlice";
+import { footerWrapper } from "../styles";
+import { FooterColumn, ListItem } from "../types";
+import { Link as RouterLink } from "react-router-dom";
+import DynamicIcon from "./DynamicIcon";
 
 export default function Footer() {
-  console.log(dummyData);
+  const { data } = useFetchWebContentDataQuery();
 
   return (
     <Box
@@ -10,51 +14,74 @@ export default function Footer() {
       p={4}
       bgcolor="brandPrimary.dark"
       color="brandPrimary.light"
+      sx={footerWrapper}
     >
       <Container maxWidth="xl">
         <Grid container spacing={5}>
-          {dummyData.footer.columnsData.map((elem: any) => {
-            return (
-              <Grid
-                item
-                xs={12}
-                md={3}
-                sx={{ textAlign: { xs: "center", md: "left" } }}
-              >
-                <Typography
-                  variant="h6"
-                  color="brandPrimary.contrastText"
-                  fontWeight="bold"
-                  gutterBottom={true}
+          {data?.WebConfig.WebFooter.map(
+            (elem: FooterColumn, index: number) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  md={3}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                  key={index}
                 >
-                  {elem.title}
-                </Typography>
+                  <Typography
+                    variant="h6"
+                    color="brandPrimary.contrastText"
+                    fontWeight="bold"
+                    gutterBottom={true}
+                  >
+                    {elem.title}
+                  </Typography>
 
-                {elem.list.map((subElem: any) => {
-                  return subElem.icon === undefined ? (
-                    <Typography variant="body2" gutterBottom={true}>
+                  {elem.TextList?.map((subElem: ListItem, index: number) => {
+                    return subElem.muiIcon ? (
                       <Link
+                        component={RouterLink}
+                        key={index}
                         color="inherit"
-                        href="#"
-                        target="_blank"
-                        underline="hover"
+                        to={subElem.linkUrl || "#"}
+                        variant="body2"
+                        underline="none"
+                        m={1}
+                        fontSize="2em"
                       >
-                        {subElem.text}
+                        <DynamicIcon iconName={subElem.muiIcon} size="large" />
                       </Link>
-                    </Typography>
-                  ) : (
-                    <Typography component="label" mr={2}>
-                      <Icon component={subElem.icon} fontSize="large" />
-                    </Typography>
-                  );
-                })}
-              </Grid>
-            );
-          })}
+                    ) : (
+                      <Typography
+                        key={index}
+                        variant="body2"
+                        gutterBottom={true}
+                      >
+                        {subElem.linkUrl ? (
+                          <Link
+                            component={RouterLink}
+                            key={subElem.text}
+                            color="inherit"
+                            to={subElem.linkUrl || "#"}
+                            variant="body2"
+                            underline="none"
+                          >
+                            {subElem.text}
+                          </Link>
+                        ) : (
+                          subElem.text
+                        )}
+                      </Typography>
+                    );
+                  })}
+                </Grid>
+              );
+            }
+          )}
 
           <Grid item xs={12}>
             <Typography variant="body2" align="center" gutterBottom={true}>
-              {`Copyright © ${new Date().getFullYear()}`}
+              {`Derechos Reservados © ${new Date().getFullYear()}`}
             </Typography>
 
             <Typography variant="body2" align="center">
@@ -63,7 +90,7 @@ export default function Footer() {
                 href="https://webrocket.services/"
                 target="_blank"
               >
-                Powered by Web Rocket Services
+                Desarrollado Por Web Rocket Services
               </Link>
             </Typography>
           </Grid>

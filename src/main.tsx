@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppCustomTheme } from "./AppCustomTheme";
 import { Provider } from "react-redux";
-import store from "./store";
+import { store } from "./store";
 import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -11,7 +11,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <Provider store={store}>
       <ThemeProvider theme={AppCustomTheme}>
         <CssBaseline />
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ThemeProvider>
     </Provider>
   </BrowserRouter>

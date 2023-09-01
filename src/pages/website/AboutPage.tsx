@@ -1,15 +1,20 @@
 import { Helmet } from "react-helmet";
-import { Box } from "@mui/material";
+// import Section from "../../components/Section";
+// import DummyData from "../../DummyData";
+import LazyComponent from "../../components/LazyComponent";
+import { useFetchWebContentDataQuery } from "../../redux/firebaseSlice";
+import { WebContentItem } from "../../types";
 
 export default function AboutPage() {
+  const { data } = useFetchWebContentDataQuery();
   return (
     <>
       <Helmet>
-        <title>{import.meta.env.VITE_PROJECT_NAME} - About</title>
+        <title>{import.meta.env.VITE_PROJECT_NAME} - Nosotros</title>
       </Helmet>
-      <Box component="main" mx={{ sm: 2, md: 4 }} my={8}>
-        Do you wanna know more about us?
-      </Box>
+      {data?.WebSection.Nosotros.map((item: WebContentItem, index: number) => {
+        return <LazyComponent key={index} data={item} />;
+      })}
     </>
   );
 }
