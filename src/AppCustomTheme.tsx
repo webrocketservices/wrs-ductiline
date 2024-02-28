@@ -44,6 +44,13 @@ const LinkBehavior = React.forwardRef<
 });
 
 export const AppCustomTheme = createTheme({
+  typography: {
+    fontFamily: [
+      "CodecPro", // your custom font
+      "Roboto", // default Material-UI font
+    ].join(","),
+  },
+  // overrides: {},
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -52,8 +59,25 @@ export const AppCustomTheme = createTheme({
         },
         "#root": {
           paddingBottom: 0,
+          fontFamily: "CodecPro, sans-serif",
         },
         main: { minHeight: "calc(100vh - 281px)" },
+        // overrides: {
+        // },
+      },
+    },
+
+    MuiTypography: {
+      styleOverrides: {
+        h4: {
+          fontFamily: "CodecProLight",
+        },
+        h3: {
+          fontFamily: "CodecProBold",
+        },
+        h2: {
+          fontFamily: "CodecProBold",
+        },
       },
     },
     MuiLink: {

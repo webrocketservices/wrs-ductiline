@@ -59,6 +59,7 @@ export type WebContentItem = {
   Header?: Header;
   ImageList?: ImgList;
   HtmlSnippet?: HtmlSnippet;
+  AccordionList?: AccordionList;
   component: string;
   Config: Config;
 };
@@ -87,7 +88,22 @@ export type ContactForm = ContactFormField & {
   apiUrl: string;
 };
 
+// export type PanelItem = {
+//   PanelList: ListItem[];
+// };
+
+export type AccordionItem = GenericContent & {
+  Summary: GenericContent;
+  // PanelList?: ListItem[];
+  Content: ColumnContent;
+};
+
+export type AccordionList = GenericContent & {
+  AccordionItems: AccordionItem[];
+};
+
 export type ColumnContent = {
+  // AccordionList?: AccordionList;
   TextList?: ListItem[];
   VideoList?: VideoListItem[];
   ImageList?: ImgList[];

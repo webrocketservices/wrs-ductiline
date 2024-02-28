@@ -7,7 +7,7 @@ export const sectionComponent = (props: any) => {
   };
   const style = {
     ...baseStyle,
-    ...(!props.bgImg ? dotsBgStyle : imgBgStyle(props.bgImg)),
+    ...(!props.bgImg ? null : imgBgStyle(props.bgImg)),
   };
   return style;
 };
@@ -19,10 +19,4 @@ const imgBgStyle = (bgImg: any) => {
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
   };
-};
-
-const dotsBgStyle = {
-  backgroundImage: "radial-gradient(#212121 10%, transparent 0%)",
-  backgroundPosition: " 0 0, 5px 5px",
-  backgroundSize: "10px 10px",
 };

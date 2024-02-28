@@ -50,9 +50,11 @@ export default function HeaderSection({ data }: CompProps) {
             </Typography>
             <CtaButton data={data.Header?.Cta} />
           </Box>
-          {data.Config.CustomStyle?.bgImgUrl ? (
+          {/* {data.Config.CustomStyle?.bgImgUrl ? (
             <Wavy waveColor={data.Config.CustomStyle?.waveColor} />
-          ) : null}
+          ) : null} */}
+
+          <Wavy waveColor={data.Config.CustomStyle?.waveColor} />
         </Box>
       </Box>
     </Box>

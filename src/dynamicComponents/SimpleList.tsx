@@ -1,12 +1,13 @@
-import { Grid } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Grid, Typography, Link } from "@mui/material";
 import { ListItem } from "../types";
 import ImageItemContent from "./ImageItemContent";
 import DynamicIcon from "./DynamicIcon";
+import { Link as RouterLink } from "react-router-dom";
 
 type CompProps = {
   data: ListItem[];
 };
+
 export default function SimpleList({ data }: CompProps) {
   return (
     <>
@@ -19,7 +20,7 @@ export default function SimpleList({ data }: CompProps) {
           <Grid container key={index} mx="auto">
             {item.Image ? (
               <Grid item xs={imgCols} textAlign="center" p={1}>
-                <ImageItemContent data={item.Image} sx={{ maxWidth: "75%" }} />
+                <ImageItemContent data={item.Image} sx={{ maxWidth: "50%" }} />
               </Grid>
             ) : null}
             {item.muiIcon ? (
@@ -29,14 +30,34 @@ export default function SimpleList({ data }: CompProps) {
             ) : null}
             <Grid
               item
-              xs={item.Image || item.muiIcon ? 12 - imgCols : 10}
+              xs={item.Image || item.muiIcon ? 12 - imgCols : 12}
               mx="auto"
               p={1}
             >
-              <Typography variant="h5">{item.title}</Typography>
-              <Typography variant="body1" mt={2}>
-                {item.text}
-              </Typography>
+              {item.linkUrl ? (
+                <Link
+                  component={RouterLink}
+                  key={item?.linkUrl}
+                  color="inherit"
+                  to={item?.linkUrl || "#"}
+                  variant="body2"
+                  underline="none"
+                  m={0}
+                  lineHeight="0"
+                >
+                  <Typography variant="h5">{item.title}</Typography>
+                  <Typography variant="body1" mt={1}>
+                    {item.text}
+                  </Typography>
+                </Link>
+              ) : (
+                <>
+                  <Typography variant="h5">{item.title}</Typography>
+                  <Typography variant="body1" mt={1}>
+                    {item.text}
+                  </Typography>
+                </>
+              )}
             </Grid>
           </Grid>
         );

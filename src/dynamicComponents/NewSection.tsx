@@ -8,7 +8,7 @@ import CtaButton from "./CtaButton";
 import VideoList from "./VideoList";
 import HtmlSnippet from "./HtmlSnippet";
 import ContactForm from "./ContactForm";
-
+// import AccordionList from "./AccordionList";
 type CompProps = {
   data: WebContentItem;
 };
@@ -57,6 +57,9 @@ export default function NewSection({ data }: CompProps) {
                 <HtmlSnippet data={column.HtmlSnippet} />
               ) : null}
               {column.TextList ? <SimpleList data={column.TextList} /> : null}
+              {/* {column.Accordion ? (
+                <AccordionList data={column.Accordion} />
+              ) : null} */}
               {column.VideoList ? <VideoList data={column.VideoList} /> : null}
               {column.Image ? (
                 <ImageItemContent
