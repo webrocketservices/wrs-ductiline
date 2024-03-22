@@ -9,26 +9,29 @@ import { PaletteColorOptions } from "@mui/material";
 
 declare module "@mui/material/styles" {
   interface Palette {
+    brandAlt: Palette;
     brandPrimary: Palette;
-    brandLight: Palette;
+    brandGray: Palette;
   }
   interface PaletteOptions {
+    brandAlt: PaletteColorOptions;
     brandPrimary: PaletteColorOptions;
-    brandLight: PaletteColorOptions;
+    brandGray: PaletteColorOptions;
   }
 }
 declare module "@mui/material" {
   interface ButtonPropsColorOverrides {
     brandPrimary: true;
-    brandLight: true;
+    brandGray: true;
   }
   interface AppBarPropsColorOverrides {
     brandPrimary: true;
     brandLight: true;
+    brandGray: true;
   }
   interface BoxPropsColorOverrides {
     brandPrimary: true;
-    brandLight: true;
+    brandGray: true;
   }
 }
 
@@ -41,22 +44,42 @@ const LinkBehavior = React.forwardRef<
 });
 
 export const AppCustomTheme = createTheme({
+  typography: {
+    fontFamily: [
+      "CodecPro", // your custom font
+      "Roboto", // default Material-UI font
+    ].join(","),
+  },
+  // overrides: {},
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
-        body{
-          background-color: #FCF7F8; 
-        }
-        #root{
-          padding-bottom: 0;
-         
-        }
-        main{
-          min-height: calc(100vh - 281px);
-        }
-      `,
+      styleOverrides: {
+        body: {
+          backgroundColor: "#FCF7F8",
+        },
+        "#root": {
+          paddingBottom: 0,
+          fontFamily: "CodecPro, sans-serif",
+        },
+        main: { minHeight: "calc(100vh - 281px)" },
+        // overrides: {
+        // },
+      },
     },
 
+    MuiTypography: {
+      styleOverrides: {
+        h4: {
+          fontFamily: "CodecProLight",
+        },
+        h3: {
+          fontFamily: "CodecProBold",
+        },
+        h2: {
+          fontFamily: "CodecProBold",
+        },
+      },
+    },
     MuiLink: {
       defaultProps: {
         component: LinkBehavior,
@@ -69,20 +92,26 @@ export const AppCustomTheme = createTheme({
     },
   },
   palette: {
-    error: {
-      main: "#A31621",
+    text: {
+      primary: "#e5f1f9",
+      secondary: "#003DA5",
+      disabled: "#465A64",
     },
     brandPrimary: {
-      light: "#e5efff",
-      main: "#013ba6",
-      dark: "#172c4f",
-      contrastText: "#79dec9",
+      light: "#6AB3E7",
+      main: "#003DA5",
+      dark: "#012F6C",
+      contrastText: "#e5f1f9",
     },
-    brandLight: {
-      light: "#4A5859",
-      main: "#FCF7F8",
-      dark: "#CED3DC",
-      contrastText: "#32373B",
+    brandGray: {
+      light: "#F1F1E6",
+      main: "#939598",
+      dark: "#465A64",
+      contrastText: "#e9ecf0",
+    },
+    brandAlt: {
+      light: "#7BB6B3",
+      main: "#0084D9",
     },
   },
 });

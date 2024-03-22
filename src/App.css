@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "CodecPro";
+  src: url("/fonts/CodecPro-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "CodecProBold";
+  src: url("/fonts/CodecPro-ExtraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "CodecProLight";
+  src: url("/fonts/CodecPro-Light.otf") format("opentype");
+}
+
+body {
+  background-color: #012f6c !important;
+  font-family: "CodecPro", sans-serif; /* Fallback to a generic sans-serif font if CodecPro is not available */
+}
+
+b,
+strong {
+  font-weight: normal; /* Reset the bold style */
+  font-family: "CodecProBold", sans-serif; /* Apply CodecPro for bold text */
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 90%;
+  }
+}
