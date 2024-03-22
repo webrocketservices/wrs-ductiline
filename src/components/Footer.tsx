@@ -24,7 +24,7 @@ export default function Footer() {
                 <Grid
                   item
                   xs={12}
-                  md={3}
+                  md={4}
                   sx={{ textAlign: { xs: "center", md: "left" } }}
                   key={index}
                 >
@@ -86,7 +86,7 @@ export default function Footer() {
             <Typography variant="body2" align="center">
               <Link
                 color="inherit"
-                href="https://webrocket.services/"
+                href="https://webrocket.services/?ref-site=ductiline"
                 target="_blank"
               >
                 Desarrollado Por Web Rocket Services

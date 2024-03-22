@@ -60,7 +60,7 @@ export default function AccordionList({ data }: CompProps) {
               {item.Content.Image ? (
                 <ImageItemContent
                   data={item.Content.Image}
-                  sx={{ maxWidth: "800px" }}
+                  style={{ maxWidth: "800px" }}
                 />
               ) : null}
             </AccordionDetails>

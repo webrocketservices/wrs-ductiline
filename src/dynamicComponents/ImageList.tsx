@@ -22,8 +22,8 @@ export default function ImageList({ data }: CompProps) {
         ) : null}
         {data.ImageList?.List.map((item: ImageItem, index: number) => {
           return (
-            <Grid item key={index} sx={imageListCell}>
-              <ImageItemContent data={item} sx={{ maxWidth: "60px" }} />
+            <Grid item key={index} sx={imageListCell} xs={1}>
+              <ImageItemContent data={item} />
             </Grid>
           );
         })}

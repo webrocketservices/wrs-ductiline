@@ -22,8 +22,10 @@ export type Cta = {
 export type ImageItem = {
   imgUrl: string;
   linkUrl?: string;
+  linkDownload?: boolean;
   caption?: string;
   cols?: number; //TODO: remove
+  Style?: any;
 };
 
 export type VideoItem = {
@@ -160,4 +162,5 @@ export type ListItem = GenericContent & {
   muiIcon?: string;
   Image?: ImageItem;
   linkUrl?: string;
+  linkDownload?: boolean;
 };

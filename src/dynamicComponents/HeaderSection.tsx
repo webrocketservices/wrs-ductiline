@@ -42,6 +42,7 @@ export default function HeaderSection({ data }: CompProps) {
             <Typography
               variant={data.Config.CustomStyle?.bgImgUrl ? "h2" : "h3"}
               mb={4}
+              sx={{ "word-break": "break-word" }}
             >
               {data.Header?.title}
             </Typography>
@@ -50,11 +51,9 @@ export default function HeaderSection({ data }: CompProps) {
             </Typography>
             <CtaButton data={data.Header?.Cta} />
           </Box>
-          {/* {data.Config.CustomStyle?.bgImgUrl ? (
+          {data.Config.CustomStyle?.waveColor ? (
             <Wavy waveColor={data.Config.CustomStyle?.waveColor} />
-          ) : null} */}
-
-          <Wavy waveColor={data.Config.CustomStyle?.waveColor} />
+          ) : null}
         </Box>
       </Box>
     </Box>

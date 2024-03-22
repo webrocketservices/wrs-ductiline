@@ -20,6 +20,7 @@ export default function NewSection({ data }: CompProps) {
         bgImg: data.Config.CustomStyle?.bgImgUrl,
         bgColor: data.Config.CustomStyle?.bgColor,
       })}
+      style={{ position: "relative" }}
     >
       <Grid container rowSpacing={5} maxWidth="1300px" mx="auto">
         <Grid item xs={12} textAlign="center">
@@ -61,12 +62,21 @@ export default function NewSection({ data }: CompProps) {
                 <AccordionList data={column.Accordion} />
               ) : null} */}
               {column.VideoList ? <VideoList data={column.VideoList} /> : null}
-              {column.Image ? (
-                <ImageItemContent
-                  data={column.Image}
-                  sx={{ maxWidth: "80%" }}
-                />
-              ) : null}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {column.Image ? (
+                  <ImageItemContent
+                    data={column.Image}
+                    style={column.Image.Style}
+                  />
+                ) : null}
+              </Box>
               <CtaButton data={column.Cta} />
             </Grid>
           );

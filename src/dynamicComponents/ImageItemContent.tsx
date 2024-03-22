@@ -1,10 +1,9 @@
-import { Box, Link, Typography } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 import { ImageItem } from "../types";
 
 type CompProps = {
   data?: ImageItem;
-  sx?: any;
+  style?: any;
 };
 const defaultStyle = {
   width: "100%",
@@ -12,31 +11,30 @@ const defaultStyle = {
   borderRadius: 5,
   // boxShadow: "2px -1px 15px -6px rgba(0,0,0,0.68)",
 };
-export default function ImageItemContent({ data, sx }: CompProps) {
+export default function ImageItemContent({ data, style }: CompProps) {
   return (
     <Box textAlign="center">
       <Box
         textAlign="center"
         height="100%"
         display="flex"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
       >
         {data?.linkUrl ? (
-          <Link
-            component={RouterLink}
+          <a
             key={data?.linkUrl}
             color="inherit"
-            to={data?.linkUrl || "#"}
-            variant="body2"
-            underline="none"
-            m={0}
-            lineHeight="0"
+            {...(data.linkDownload
+              ? { download: data.imgUrl, href: "#" }
+              : { href: data.linkUrl })}
+            style={{ color: "inherit" }}
           >
-            <img src={data?.imgUrl} style={{ ...defaultStyle, ...sx }} />
-          </Link>
+            <img src={data?.imgUrl} style={{ ...defaultStyle, ...style }} />
+          </a>
         ) : (
-          <img src={data?.imgUrl} style={{ ...defaultStyle, ...sx }} />
+          <img src={data?.imgUrl} style={{ ...defaultStyle, ...style }} />
         )}
       </Box>
       {data?.caption ? (
