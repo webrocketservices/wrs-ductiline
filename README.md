@@ -45,11 +45,17 @@
 ## CLI:
 
     - Instalar todas las librerias y dependencias:
-    ```npm install```
+    ```
+    npm install
+    ```
     - Correr el proyecto de manera local:
-    ```npm run dev```
+    ```
+    npm run dev
+    ```
     - Crear una versión de producción del sitio:
-    ```npm run build```
+    ```
+    npm run build
+    ```
 
 ## Como hacer despliegue a producción del sitio:
 
