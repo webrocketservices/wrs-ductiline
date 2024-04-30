@@ -100,7 +100,7 @@ export default function SimpleList({ data }: CompProps) {
                   key={item?.linkUrl}
                   color="inherit"
                   {...(item.linkDownload
-                    ? { download: item.linkUrl, href: "#" }
+                    ? { download: item.linkUrl, href: item.linkUrl }
                     : { href: item.linkUrl })}
                   style={{ color: "inherit" }}
                 >
