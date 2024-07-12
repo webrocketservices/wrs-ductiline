@@ -42,7 +42,7 @@ export default function HeaderSection({ data }: CompProps) {
             <Typography
               variant={data.Config.CustomStyle?.bgImgUrl ? "h2" : "h3"}
               mb={4}
-              sx={{ "word-break": "break-word" }}
+              sx={{ wordBreak: "break-word" }}
             >
               {data.Header?.title}
             </Typography>

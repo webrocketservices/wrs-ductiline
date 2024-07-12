@@ -27,3 +27,7 @@ strong {
     font-size: 90%;
   }
 }
+form input,
+form textarea {
+  color: #012e6c !important;
+}

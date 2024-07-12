@@ -27,7 +27,7 @@ export default function ImageItemContent({ data, style }: CompProps) {
             key={data?.linkUrl}
             color="inherit"
             {...(data.linkDownload
-              ? { download: data.linkUrl, href: data.linkUrl }
+              ? { download: data.imgUrl, href: "#" }
               : { href: data.linkUrl })}
             style={{ color: "inherit" }}
           >
